@@ -35,7 +35,7 @@ foreach ($server in $servers.GetEnumerator() ) {
             $_ | Stop-Service -Force -ErrorVariable errorStop
             $_ | Start-Service -ErrorVariable errorStart
 
-            Write-EventLog -LogName 'Application' -Source 'Check-Service' -EntryType 'Warning' -EventID 2 -Message "$($_.Name) on $($server.Key) restarted. `n Errors stopping: $errorStop. `n Errors starting: $errorStart"
+            Write-EventLog -LogName 'Application' -Source 'Check-Service' -EntryType 'Warning' -EventID 2 -Message "$($_.Name) on $($server.Key) restarted. `n Errors stopping: $errorStop `n Errors starting: $errorStart"
         }
     }
 }
